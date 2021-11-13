@@ -1,0 +1,15 @@
+# script to create pipeline
+# building dotnet application
+# adding updates
+pool:
+  vmImage: ubuntu-latest
+stages:
+  - stage: CIbuildstage
+    jobs:
+    - job : CIjob
+      steps:
+      - script: dotnet restore
+        displayName: restore-task
+      - script: dotnet build
+        displayName: dotnet-build-task
+  
